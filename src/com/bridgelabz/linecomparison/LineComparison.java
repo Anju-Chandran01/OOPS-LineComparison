@@ -6,22 +6,42 @@ import java.util.Scanner;
 public class LineComparison {
     public static void main(String[] args) {
         System.out.println("--- Welcome to Line Comparison Computation Program ---");
+        System.out.println("Enter the coordinates of 1st line");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Let (x1,y1) and (x2,y2) be the two coordinates");
-        System.out.println("Enter x1 : ");
+        System.out.print("Enter x1 : ");
         int x1 = sc.nextInt();
-        System.out.println("Enter y1 : ");
+        System.out.print("Enter y1 : ");
         int y1 = sc.nextInt();
-        System.out.println("Enter x2 : ");
+        System.out.print("Enter x2 : ");
         int x2 = sc.nextInt();
-        System.out.println("Enter y2 : ");
+        System.out.print("Enter y2 : ");
         int y2 = sc.nextInt();
-        getResult(x1,y1,x2,y2);
+
+        System.out.println("Enter the coordinates of 2nd Line");
+        System.out.print("Enter x3 : ");
+        int x3 = sc.nextInt();
+        System.out.print("Enter y3 : ");
+        int y3 = sc.nextInt();
+        System.out.print("Enter x4 : ");
+        int x4 = sc.nextInt();
+        System.out.print("Enter y4 : ");
+        int y4 = sc.nextInt();
+        getResult(x1,y1,x2,y2,x3,y3,x4,y4);
     }
 
-    private static void getResult(int x1, int y1, int x2, int y2) {
-        double length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    private static void getResult(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
         DecimalFormat deciForm = new DecimalFormat("0.##");
-        System.out.println("The distance is : " + deciForm.format(length));
+
+        //CALCULATE LENGTH OF TWO LINES
+        Double length1 = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        System.out.println("Length of first line is : " + deciForm.format(length1));
+        Double length2 = Math.sqrt(Math.pow(x4 - x3, 2) + Math.pow(y4 - y3, 2));
+        System.out.println("Length of second line is : " + deciForm.format(length2));
+
+        //CHECK EQUALITY
+        if(length1.equals(length2))
+            System.out.println("Both lines are equal");
+        else
+            System.out.println("Both lines are not equal");
     }
 }
