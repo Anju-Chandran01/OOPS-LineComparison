@@ -26,10 +26,10 @@ public class LineComparison {
         int x4 = sc.nextInt();
         System.out.print("Enter y4 : ");
         int y4 = sc.nextInt();
-        getResult(x1,y1,x2,y2,x3,y3,x4,y4);
+        calculateLength(x1,y1,x2,y2,x3,y3,x4,y4);
     }
 
-    private static void getResult(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
+    private static void calculateLength(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
         DecimalFormat deciForm = new DecimalFormat("0.##");
 
         //CALCULATE LENGTH OF TWO LINES
@@ -38,10 +38,12 @@ public class LineComparison {
         Double length2 = Math.sqrt(Math.pow(x4 - x3, 2) + Math.pow(y4 - y3, 2));
         System.out.println("Length of second line is : " + deciForm.format(length2));
 
-        //CHECK EQUALITY
-        if(length1.equals(length2))
-            System.out.println("Both lines are equal");
+        // COMPARISON OF LENGTHS
+        if(length1.compareTo(length2) > 0)
+            System.out.println("Line1 is larger than Line2");
+        else if(length1.compareTo(length2) < 0)
+            System.out.println("Line1 is smaller than Line2");
         else
-            System.out.println("Both lines are not equal");
+            System.out.println("Both lines are same");
     }
 }
